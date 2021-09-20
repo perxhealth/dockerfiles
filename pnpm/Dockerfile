@@ -2,4 +2,4 @@
 FROM node:12-alpine3.14
 
 # Install pnpm
-RUN curl -f https://get.pnpm.io/v6.14.js | node - add --global pnpm
+RUN wget -qO- https://get.pnpm.io/install.sh | sh -
