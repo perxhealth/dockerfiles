@@ -15,8 +15,10 @@ RUN apt-get update && \
     && pip3 install --upgrade pip \
     && apt-get clean
 
-# Install AWS CLI
-RUN pip3 --no-cache-dir install --upgrade awscli
+# Download the AWS CLI archive, extract and install
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
 
 # Ensure AWS CLI is installed correctly
 RUN aws --version
