@@ -2,7 +2,7 @@
 FROM node:14.17
 
 # Install pnpm version 6.23.1
-RUN curl -f https://get.pnpm.io/v6.23.1.js | node - add --global pnpm
+RUN npm install -g pnpm@6.23.1
 
 # Install Python3 and Pip
 RUN apt-get update && \
