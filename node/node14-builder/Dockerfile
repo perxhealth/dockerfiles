@@ -1,8 +1,8 @@
 # Bootstrap from Node 14.17 official image
 FROM node:14.17
 
-# Install pnpm
-RUN npm install -g pnpm
+# Install pnpm version 6.23.1
+RUN npm install -g pnpm@6.23.1
 
 # Install Python3 and Pip
 RUN apt-get update && \
