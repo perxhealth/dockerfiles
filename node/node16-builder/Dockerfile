@@ -1,4 +1,4 @@
-# Bootstrap from Node 14.17 official image
+# Bootstrap from Node 16.13 official image
 FROM node:16.13.1
 
 # Install pnpm version 6.23.1
