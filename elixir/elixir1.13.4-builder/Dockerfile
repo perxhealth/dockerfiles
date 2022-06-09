@@ -14,9 +14,6 @@ RUN aws --version
 # Install jq so we can do some json parsing
 RUN apk add jq
 
-# Install postgresql-client so we have access to invoke `psql`
-RUN apk add postgresql-client
-
 # Install dependency tools for Elixir and Erlang - these need to be done
 # per installation
 RUN mix local.hex --force
