@@ -20,8 +20,11 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN unzip awscliv2.zip
 RUN ./aws/install
 
+# Ensure AWS CLI is installed correctly
+RUN aws --version
+
 # Install jq so we can do some json parsing
 RUN apt-get install -y jq
 
-# Ensure AWS CLI is installed correctly
-RUN aws --version
+# Install the bun runtime so we can use it instead of node if we like
+RUN curl https://bun.sh/install | bash
