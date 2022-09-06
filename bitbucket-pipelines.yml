@@ -1,0 +1,19 @@
+definitions:
+  services:
+    docker:
+      memory: 2048
+  steps:
+    - step: &Node14
+        name: Build and push -> Node 14
+        script:
+          - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
+          - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
+          - export HEAD_SHA="${BITBUCKET_COMMIT::6}"
+          - cd node/node14-builder
+          - docker build -t node14-builder:$HEAD_SHA -f Dockerfile .
+
+pipelines:
+  pull-requests:
+    '**':
+      - parallel:
+        - step: *Node14
