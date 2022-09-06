@@ -11,6 +11,7 @@ definitions:
           - export HEAD_SHA="${BITBUCKET_COMMIT::6}"
           - cd node/node14-builder
           - docker build -t node14-builder -f Dockerfile .
+          - docker tag node14-builder:$HEAD_SHA public.ecr.aws/perx/node14-builder:$HEAD_SHA
 
 pipelines:
   pull-requests:
