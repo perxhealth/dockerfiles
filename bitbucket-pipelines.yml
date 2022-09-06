@@ -12,7 +12,7 @@ definitions:
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
           - export HEAD_SHA="${BITBUCKET_COMMIT::6}"
           - cd node/node14-builder
-          - docker build -t node14-builder -f Dockerfile .
+          - docker build -t node14-builder:$HEAD_SHA -f Dockerfile .
           - docker tag node14-builder:$HEAD_SHA public.ecr.aws/perx/node14-builder:$HEAD_SHA
 
 pipelines:
