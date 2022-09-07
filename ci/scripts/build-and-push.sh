@@ -12,6 +12,9 @@ if [[ -z "$IMAGE_VERSION" ]]; then
   exit 1
 fi
 
+# Change to the target directory if present
+cd $DOCKERFILE_PATH:-.
+
 # Build, tag and push the image to the authenticated registry
 docker build -t node14-builder:$IMAGE_VERSION -f Dockerfile .
 docker tag node14-builder:$IMAGE_VERSION public.ecr.aws/perx/node14-builder:$IMAGE_VERSION
