@@ -9,7 +9,7 @@ fi
 # Set image version
 # - if the branch is `canon`, we want to use `latest`
 # - otherwise we want the commit's sha's first 6 chars
-if [ "$BITBUCKET_BRANCH" -eq "canon" ]; then
+if [ "$BITBUCKET_BRANCH" == "canon" ]; then
   IMAGE_VERSION="latest"
 else
   IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
