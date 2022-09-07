@@ -13,7 +13,6 @@ definitions:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
           - export DOCKERFILE_PATH="node/node14-builder"
-          - export IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
           - export IMAGE_NAME="node14-builder"
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh
@@ -26,7 +25,6 @@ definitions:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
           - export DOCKERFILE_PATH="node/node16-builder"
-          - export IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
           - export IMAGE_NAME="node16-builder"
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh
@@ -39,7 +37,6 @@ definitions:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
           - export DOCKERFILE_PATH="elixir/elixir1.13-builder"
-          - export IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
           - export IMAGE_NAME="elixir1.13-builder"
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh
@@ -52,7 +49,6 @@ definitions:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
           - export DOCKERFILE_PATH="aws"
-          - export IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
           - export IMAGE_NAME="aws"
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh

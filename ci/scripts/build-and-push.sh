@@ -6,10 +6,13 @@ if [[ -z "$IMAGE_NAME" ]]; then
   exit 1
 fi
 
-# Abort if $IMAGE_VERSION has not been set
-if [[ -z "$IMAGE_VERSION" ]]; then
-  echo "An image version must be provided in the environment" 1>&2
-  exitAWSCLI1
+# Set image version
+# - if the branch is `canon`, we want to use `latest`
+# - otherwise we want the commit's sha's first 6 chars
+if [ "$BITBUCKET_BRANCH" -eq "canon" ]; then
+  IMAGE_VERSION="latest"
+else
+  IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
 fi
 
 # Change to the target directory if present
