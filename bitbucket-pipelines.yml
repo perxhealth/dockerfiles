@@ -1,4 +1,4 @@
-image: public.ecr.aws/perx/aws:latest
+image: public.ecr.aws/perx/node16-builder:latest
 
 definitions:
   services:
