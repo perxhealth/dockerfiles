@@ -62,3 +62,6 @@ pipelines:
     '**':
       - parallel:
         - step: *Node14
+        - step: *Node16
+        - step: *Elixir1.13
+        - step: *AWSCLI
