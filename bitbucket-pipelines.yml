@@ -15,6 +15,7 @@ definitions:
           - export HEAD_SHA="${BITBUCKET_COMMIT::6}"
           - source ci/scripts/assume-role.sh
           - cd node/node14-builder
+          - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/perx
           - docker build -t node14-builder:$HEAD_SHA -f Dockerfile .
           - docker tag node14-builder:$HEAD_SHA public.ecr.aws/perx/node14-builder:$HEAD_SHA
           - docker push public.ecr.aws/perx/node14-builder:$HEAD_SHA
