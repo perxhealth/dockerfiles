@@ -54,7 +54,7 @@ definitions:
           - ci/scripts/build-and-push.sh
 
 pipelines:
-  pull-requests:
+  branches:
     '**':
       - parallel:
         - step: *Node14
