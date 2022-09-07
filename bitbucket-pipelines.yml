@@ -1,3 +1,5 @@
+image: public.ecr.aws/perx/aws:latest
+
 definitions:
   services:
     docker:
