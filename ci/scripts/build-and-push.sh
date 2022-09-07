@@ -13,7 +13,7 @@ if [[ -z "$IMAGE_VERSION" ]]; then
 fi
 
 # Change to the target directory if present
-cd $DOCKERFILE_PATH:-.
+cd "${DOCKERFILE_PATH:-.}"
 
 # Build, tag and push the image to the authenticated registry
 docker build -t node14-builder:$IMAGE_VERSION -f Dockerfile .
