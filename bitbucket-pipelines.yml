@@ -12,12 +12,11 @@ definitions:
         script:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
-          - export HEAD_SHA="${BITBUCKET_COMMIT::6}"
+          - export DOCKERFILE_PATH="node/${IMAGE_NAME}"
+          - export IMAGE_VERSION="${BITBUCKET_COMMIT::6}"
+          - export IMAGE_NAME="node14-builder"
           - ci/scripts/login-to-ecr.sh
-          - cd node/node14-builder
-          - docker build -t node14-builder:$HEAD_SHA -f Dockerfile .
-          - docker tag node14-builder:$HEAD_SHA public.ecr.aws/perx/node14-builder:$HEAD_SHA
-          - docker push public.ecr.aws/perx/node14-builder:$HEAD_SHA
+          - ci/scripts/build-and-push.sh
 
 pipelines:
   pull-requests:
