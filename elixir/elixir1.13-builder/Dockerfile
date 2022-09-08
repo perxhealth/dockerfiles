@@ -10,7 +10,7 @@ RUN apk add --no-cache python3 py3-pip \
 
 # Install the BEAM's native runtime dependencies which no longer ship
 # with Alpine
-RUN apk add --no-cache openssl ncurses-libs libstdc++
+RUN apk add --no-cache openssl libgcc libstdc++ ncurses-libs
 
 # Install bash so any scripts we author and run are easier to reason about
 RUN apk add bash
