@@ -8,6 +8,10 @@ RUN apk add --no-cache python3 py3-pip \
     && pip3 install --no-cache-dir awscli \
     && rm -rf /var/cache/apk/*
 
+# Install the BEAM's native runtime dependencies which no longer ship
+# with Alpine
+RUN apk add --no-cache openssl ncurses-libs libstdc++
+
 # Install bash so any scripts we author and run are easier to reason about
 RUN apk add bash
 RUN bash --version
