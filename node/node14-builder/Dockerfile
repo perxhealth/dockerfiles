@@ -15,6 +15,9 @@ RUN apt-get update && \
     && pip3 install --upgrade pip \
     && apt-get clean
 
+# Install GetText
+RUN apt-get install -y gettext-base
+
 # Download the AWS CLI archive, extract and install
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
