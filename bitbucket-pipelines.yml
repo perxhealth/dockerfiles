@@ -71,7 +71,7 @@ definitions:
 
 pipelines:
   branches:
-    canon:
+    '**':
       - parallel:
         - step: *Node14
         - step: *Node16
