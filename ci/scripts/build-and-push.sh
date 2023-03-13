@@ -20,5 +20,5 @@ cd "${DOCKERFILE_PATH:-.}"
 
 # Build, tag and push the image to the authenticated registry
 docker build -t $IMAGE_NAME:$IMAGE_VERSION -f Dockerfile .
-docker tag $IMAGE_NAME:$IMAGE_VERSION public.ecr.aws/perx/$IMAGE_NAME:latest
-docker push public.ecr.aws/perx/$IMAGE_NAME:latest
+docker tag $IMAGE_NAME:$IMAGE_VERSION public.ecr.aws/perx/$IMAGE_NAME:$IMAGE_VERSION
+docker push public.ecr.aws/perx/$IMAGE_NAME:$IMAGE_VERSION
