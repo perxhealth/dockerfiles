@@ -14,7 +14,7 @@ FROM amazonlinux:2
 
 # Install less and groff
 RUN yum update -y \
-  && yum install -y less groff \
+  && yum install -y less groff jq \
   && yum clean all
 
 # Copy over the CLI
