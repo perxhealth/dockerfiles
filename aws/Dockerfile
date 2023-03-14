@@ -12,7 +12,7 @@ RUN ./aws/install --bin-dir /aws-cli-bin/
 # Start fresh again on Amazon Linux 2
 FROM amazonlinux:2
 
-# Install less and groff
+# Install less, groff and jq
 RUN yum update -y \
   && yum install -y less groff jq \
   && yum clean all
