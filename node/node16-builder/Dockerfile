@@ -19,7 +19,7 @@ RUN apt-get update && \
 RUN apt-get install -y gettext-base
 
 # Install libpq
-RUN apt-get install -y libpq
+RUN apt-get install -y libpq-dev g++ make
 
 # Download the AWS CLI archive, extract and install
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
