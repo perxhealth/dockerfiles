@@ -1,8 +1,8 @@
-# Bootstrap from Node 16.13 official image
-FROM node:16.13.1
+# Bootstrap from Node 16.20.0 official image
+FROM node:16.20.0
 
-# Install pnpm version 7.9.5
-RUN npm install -g pnpm@7.9.5
+# Install pnpm version 8.1.1
+RUN npm install -g pnpm@8.1.1
 
 # Install Python3 and Pip
 RUN apt-get update && \
