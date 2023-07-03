@@ -1,6 +1,6 @@
-# Bootstrap from Elixir 1.15.2, Erlang 26.0.2 and Alpine 3.16.3
+# Bootstrap from Elixir 1.15.2, Erlang 26.0.2 and Alpine 3.18.2
 # official image
-FROM hexpm/elixir:1.15.2-erlang-26.0.2-alpine-3.16.3
+FROM hexpm/elixir:1.15.2-erlang-26.0.2-alpine-3.18.2
 
 # Install AWS CLI via Pip3 so we can invoke AWS services later during CI
 RUN apk add --no-cache python3 py3-pip \
