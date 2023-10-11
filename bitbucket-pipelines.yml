@@ -135,12 +135,12 @@ definitions:
 
 pipelines:
   branches:
-    "**":
+    '**':
       - parallel:
-          - step: *Node14
-          - step: *Node16
-          - step: *Node18
-          - step: *Elixir1.13
-          - step: *Elixir1.14
-          - step: *Elixir1.15
-          - step: *AWSCLI
+        - step: *Node14
+        - step: *Node16
+        - step: *Node18
+        - step: *Elixir1.13
+        - step: *Elixir1.14
+        - step: *Elixir1.15
+        - step: *AWSCLI
