@@ -37,6 +37,22 @@ definitions:
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh
 
+    - step: &Node20
+        name: Build and push -> Node 20
+        services:
+          - docker
+        condition:
+          changesets:
+            includePaths:
+              - node/node20-builder/**
+        script:
+          - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
+          - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
+          - export DOCKERFILE_PATH="node/node20-builder"
+          - export IMAGE_NAME="node20-builder"
+          - ci/scripts/login-to-ecr.sh
+          - ci/scripts/build-and-push.sh
+
     - step: &Elixir1.13
         name: Build and push -> Elixir 1.13
         services:
@@ -75,5 +91,6 @@ pipelines:
       - parallel:
         - step: *Node14
         - step: *Node16
+        - step: *Node20
         - step: *Elixir1.13
         - step: *AWSCLI
