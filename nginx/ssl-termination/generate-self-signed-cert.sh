@@ -43,7 +43,7 @@ CRT_COUNTRY="AU"
 CRT_STATE="NSW"
 CRT_LOC="Sydney"
 CRT_UNIT="engineering"
-CRT_NAME="perx-onboarding"
+CRT_NAME="perx-engineering"
 
 info "Writing key to: $KEY_PATH"
 info "Writing crt to: $CRT_PATH"
