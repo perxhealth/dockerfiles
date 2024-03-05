@@ -133,6 +133,18 @@ definitions:
           - ci/scripts/login-to-ecr.sh
           - ci/scripts/build-and-push.sh
 
+    - step: &NGINXSSL
+        name: Build and push -> NGINX SSL Termination
+        services:
+          - docker
+        script:
+          - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
+          - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
+          - export DOCKERFILE_PATH="nginx/ssl-termination"
+          - export IMAGE_NAME="nginx-ssl-termination"
+          - ci/scripts/login-to-ecr.sh
+          - ci/scripts/build-and-push.sh
+
 pipelines:
   branches:
     '**':
@@ -145,3 +157,4 @@ pipelines:
         - step: *Elixir1.14
         - step: *Elixir1.15
         - step: *AWSCLI
+        - step: *NGINXSSL
