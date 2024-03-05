@@ -137,6 +137,10 @@ definitions:
         name: Build and push -> NGINX SSL Termination
         services:
           - docker
+        condition:
+          changesets:
+            includePaths:
+              - nginx/ssl-termination/**
         script:
           - export AWS_ACCESS_KEY_ID=$MGMT_AWS_ACCESS_KEY_ID
           - export AWS_SECRET_ACCESS_KEY=$MGMT_AWS_SECRET_ACCESS_KEY
