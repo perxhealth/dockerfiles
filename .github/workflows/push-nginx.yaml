@@ -1,0 +1,30 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+        branches:
+            - "**"
+        paths:
+          - 'nginx/ssl-termination/**'
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_OIDC_ECR_ROLE }}
+          aws-region: ap-southeast-2
+
+      - name: Login to ECR
+        run: ci/scripts/login-to-ecr.sh
+
+      - name: Build and push
+        env:
+          DOCKERFILE_PATH: nginx/ssl-termination
+          IMAGE_NAME: nginx-ssl-termination
+        run: ci/scripts/build-and-push.sh
